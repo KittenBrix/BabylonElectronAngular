@@ -1,0 +1,25 @@
+
+
+
+
+<div class="container-fluid fullscreen">
+  <div class="row d-flex justify-content-center align-items-center fullscreen">
+    <div>
+      <div class="row d-flex justify-content-center align-items-center" style="max-width: 28%">
+        <app-duck-box-container></app-duck-box-container>
+      </div>
+      <div class="row mx-auto d-flex justify-content-center align-items-center">
+        <button
+          (click)="home()"
+          class="app-button-primary LogoutButtons"
+          type="button"
+        >No, Go Back</button>
+        <button
+          (click)="logout()"
+          class="app-button-primary LogoutButtons Logout"
+          type="button"
+        >Yes, Log me out</button>
+      </div>
+    </div>
+  </div>
+</div>
