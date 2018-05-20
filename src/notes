@@ -1,0 +1,101 @@
+
+meshbuiulders produce mesh objects.
+mesh objects have position.
+mesh objects have material. (standardMaterial)
+materials take color3. they also have a .alpha value.
+
+eg
+"
+    var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
+    myMaterial.diffuseColor = new BABYLON.Color3(1, 0, 1);
+    myMaterial.specularColor = new BABYLON.Color3(0.5, 0.6, 0.87);
+    myMaterial.emissiveColor = new BABYLON.Color3(1, 1, 1);
+    myMaterial.ambientColor = new BABYLON.Color3(0.23, 0.98, 0.53);
+    mesh.material = myMaterial;
+"
+
+
+"
+For input control by the user all cameras need to be attached to the canvas once constructed using
+camera.attachControl(canvas, true);
+The second parameter is optional and defaults to false. When false then default actions on a canvas event are prevented. Set to true to allow canvas default actions."
+
+
+
+FollowCams:::
+
+// Parameters: name, position, scene
+var camera = new BABYLON.FollowCamera("FollowCam", new BABYLON.Vector3(0, 10, -10), scene);
+
+//The goal distance of camera from target
+camera.radius = 30;
+
+// The goal height of camera above local origin (centre) of target
+camera.heightOffset = 10;
+
+// The goal rotation of camera around local origin (centre) of target in x y plane
+camera.rotationOffset = 0;
+
+//Acceleration of camera in moving from current to goal position
+camera.cameraAcceleration = 0.005
+
+//The speed at which acceleration is halted
+camera.maxCameraSpeed = 10
+
+// This attaches the camera to the canvas
+   camera.attachControl(canvas, true);
+
+// NOTE:: SET CAMERA TARGET AFTER THE TARGET'S CREATION AND NOTE CHANGE FROM BABYLONJS V 2.5
+//targetMesh created here
+camera.target = targetMesh;   // version 2.4 and earlier
+camera.lockedTarget = targetMesh; //version 2.5 onwards
+
+
+
+
+
+
+
+you can use promises to wait for the end of an animation.
+var anim = scene.beginAnimation(box1, 0, 100, false);
+console.log("before");
+await anim.waitAsync();
+console.log("after");
+
+
+
+
+
+
+"Controlling animations
+
+Each Animation has a property called currentFrame that indicates the current animation key.
+
+For advanced keyframe animation, you can also define the functions used to interpolate (transition) between keys. By default these functions are the following:
+
+BABYLON.Animation.prototype.floatInterpolateFunction = function (startValue, endValue, gradient) {
+  return startValue + (endValue - startValue) * gradient;
+};
+
+BABYLON.Animation.prototype.quaternionInterpolateFunction = function (startValue, endValue, gradient) {
+  return BABYLON.Quaternion.Slerp(startValue, endValue, gradient);
+};
+
+BABYLON.Animation.prototype.vector3InterpolateFunction = function (startValue, endValue, gradient) {
+  return BABYLON.Vector3.Lerp(startValue, endValue, gradient);
+};
+
+Here is the list of functions that you can change:
+
+    floatInterpolateFunction
+    quaternionInterpolateFunction
+    quaternionInterpolateFunctionWithTangents
+    vector3InterpolateFunction
+    vector3InterpolateFunctionWithTangents
+    vector2InterpolateFunction
+    vector2InterpolateFunctionWithTangents
+    sizeInterpolateFunction
+    color3InterpolateFunction
+    matrixInterpolateFunction
+
+"

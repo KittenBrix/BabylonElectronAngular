@@ -1,0 +1,37 @@
+@import '../../styles.scss';
+// .leftColumn {
+//   width: 25%;
+//   overflow: hidden;
+//   float: left;
+// }
+// .rightColumn {
+//   width: 75%;
+//   overflow: hidden;
+// }
+
+.custom-container{
+  max-width: 90%;
+  margin-left: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: $backgrd;
+}
+
+.redslide{
+  background-color: $litered;
+}
+
+.grnslide{
+  background-color: $litegrn;
+}
+
+.bluslide{
+  background-color: $liteblu;
+}
+
+.controlgroup{
+  // background-color: black;
+  border-style: solid;
+  border-width: medium;
+  border-color: $canvasbordercolor;
+}

@@ -10,13 +10,13 @@ export default class Test {
   generateBaseScene(eng : BABYLON.Engine): BABYLON.Scene{
     let scn = new Scene(eng);
 
-    let sphere = MeshBuilder.CreateSphere('sphere1', {segments: 16, diameter: 2}, scn);
-    sphere.position.y = 1;
-
-    let ground = MeshBuilder.CreateGround('ground1', {width: 6, height: 6, subdivisions: 2}, scn);
-    this.Pilot = this.generatePilotObject(scn);
-    this.Pilot.position = new Vector3(4,3,2);
-    this.showWorldSpaceAxis(10,scn);
+    // let sphere = MeshBuilder.CreateSphere('sphere1', {segments: 16, diameter: 2}, scn);
+    // sphere.position.y = 1;
+    //
+    // let ground = MeshBuilder.CreateGround('ground1', {width: 6, height: 6, subdivisions: 2}, scn);
+    // this.Pilot = this.generatePilotObject(scn);
+    // this.Pilot.position = new Vector3(4,3,2);
+    // this.showWorldSpaceAxis(10,scn);
 
     return scn;
   }
@@ -41,7 +41,7 @@ export default class Test {
     // Parameters: name, position, scene
 
     //The goal distance of camera from target
-    camera.radius = 30;
+    camera.radius = 50;
 
     // The goal height of camera above local origin (centre) of target
     camera.heightOffset = 10;
@@ -97,7 +97,7 @@ export default class Test {
 
   }
 
-  
+
 
 
 

@@ -1,25 +1,39 @@
 
 
+<!-- fucking piece of shit angular guides. can't get global bootstrap to work
+      might as well just request it.-->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<div class="custom-container fullscreen">
+  <div class="row">
 
+    <div class="col-md-4 controlgroup" >
+      <!-- <form [formGroup]="DuckForm"> -->
+      <!-- <div class="row custom-container">
 
-<div class="container-fluid fullscreen">
-  <div class="row d-flex justify-content-center align-items-center fullscreen">
-    <div>
-      <div class="row d-flex justify-content-center align-items-center" style="max-width: 28%">
-        <app-duck-box-container></app-duck-box-container>
+        <button class="btn btn-primary">No, Go Back</button>
+        <button class="btn">Yes, Log me out</button>
+        <button class="btn btn-primary" type="button">Clear</button>
+      </div> -->
+      <div class="row custom-container md-form">
+        <label for="DuckieSlider" class="">Duckies: {{DuckCount}}</label>
+        <input mdbActive (change)="duckcheck()" formControlName="DuckieSlider" id="DuckieSlider" type="range" min="1" max="10" step="1" value={{DuckCount}} data-orientation="vertical" class="form-control">
       </div>
-      <div class="row mx-auto d-flex justify-content-center align-items-center">
-        <button
-          (click)="home()"
-          class="app-button-primary LogoutButtons"
-          type="button"
-        >No, Go Back</button>
-        <button
-          (click)="logout()"
-          class="app-button-primary LogoutButtons Logout"
-          type="button"
-        >Yes, Log me out</button>
+      <div class="row custom-container md-form">
+        <label for="RedSlider" class="">Red Value: {{Redval}}</label>
+        <input  (change)="redcheck()" formControlName="RedSlider" id="RedSlider" type="range" min="1" max="255" step="1" value={{Redval}} data-orientation="vertical" class="form-control redslide">
       </div>
+      <div class="row custom-container md-form">
+        <label for="GreenSlider" class="">Green Value: {{Grnval}}</label>
+        <input mdbActive (change)="grncheck()" formControlName="GreenSlider"id="GreenSlider" type="range" min="1" max="255" step="1" value={{Grnval}} data-orientation="vertical" class="form-control grnslide">
+      </div>
+      <div class="row custom-container md-form">
+        <label for="BlueSlider" class="">Blue Value: {{Bluval}}</label>
+        <input mdbActive (change)="blucheck()" formControlName="BlueSlider" id="BlueSlider" type="range" min="1" max="255" step="1" value={{Bluval}} data-orientation="vertical" class="form-control bluslide">
+      </div>
+    <!-- </form> -->
+    </div>
+    <div class="col-md-8" >
+        <app-duck-box-container (getGame)="onRecieveGame($event)"></app-duck-box-container>
     </div>
   </div>
 </div>
