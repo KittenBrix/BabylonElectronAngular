@@ -68,4 +68,8 @@ export class HomeComponent implements OnInit {
     this.applyChanges();
   }
 
+  PrintInfo():void{
+    console.log(this.gm.duckmesh[0])
+  }
+
 }

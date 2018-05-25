@@ -1,6 +1,4 @@
-
-
-<!-- fucking piece of shit angular guides. can't get global bootstrap to work
+<!-- can't get global bootstrap to work
       might as well just request it.-->
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 <div class="custom-container fullscreen">
@@ -29,6 +27,9 @@
       <div class="row custom-container md-form">
         <label for="BlueSlider" class="">Blue Value: {{Bluval}}</label>
         <input mdbActive (change)="blucheck()" formControlName="BlueSlider" id="BlueSlider" type="range" min="1" max="255" step="1" value={{Bluval}} data-orientation="vertical" class="form-control bluslide">
+      </div>
+      <div class="row custom-container md-form">
+        <button class="btn-primary btn" (click)="PrintInfo()">Print DuckInfo</button>
       </div>
     <!-- </form> -->
     </div>
